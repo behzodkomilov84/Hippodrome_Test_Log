@@ -1,0 +1,13 @@
+2025-05-21 15:11:32,754 DEBUG Horse: Создание Horse, имя [Otning ismi], скорость [1.0]
+2025-05-21 15:11:32,788 ERROR Horse: Speed is negative
+2025-05-21 15:11:32,793 ERROR Horse: Name is null
+2025-05-21 15:11:32,845 ERROR Horse: Name is blank
+2025-05-21 15:11:32,851 ERROR Horse: Name is blank
+2025-05-21 15:11:32,855 ERROR Horse: Name is blank
+2025-05-21 15:11:32,859 ERROR Horse: Name is blank
+2025-05-21 15:11:32,865 DEBUG Horse: Создание Horse, имя [Otning ismi], скорость [1.0]
+2025-05-21 15:11:32,878 DEBUG Horse: Создание Horse, имя [Otning ismi], скорость [1.0]
+2025-05-21 15:11:32,891 ERROR Horse: Name is null
+2025-05-21 15:11:32,895 DEBUG Horse: Создание Horse, имя [Otning ismi], скорость [1.0]
+2025-05-21 15:11:32,901 ERROR Horse: Distance is negative
+2025-05-21 15:11:32,904 DEBUG Horse: Создание Horse, имя [Otning ismi], скорость [1.0]

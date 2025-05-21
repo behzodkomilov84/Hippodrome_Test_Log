@@ -13,7 +13,7 @@ class MainTest extends Main {
     @Disabled("Отключен по необходимости, пока не нужен запуск всем тестам")
     public void mainTest() throws Exception {
 
-        main(new String[]{""});
+        Main.main(null);
     }
 
 }

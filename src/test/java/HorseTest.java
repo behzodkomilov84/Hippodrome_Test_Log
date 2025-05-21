@@ -48,7 +48,7 @@ public class HorseTest {
     @Test
     public void ifSecondParameterIsNegativeThrowIllegalArgumentExceptionWithMessage_SpeedCannotBeNegative() {
         IllegalArgumentException e = Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            new Horse("Horse name", -1, 1);
+            new Horse("Otning ismi", -1, 1);
         });
 
         assertEquals("Speed cannot be negative.", e.getMessage());
@@ -58,7 +58,7 @@ public class HorseTest {
     @Test
     public void ifThirdParameterIsNegativeThrowIllegalArgumentExceptionWithMessage_DistanceCannotBeNegative() {
         IllegalArgumentException e = Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            new Horse("Horse name", 1, -1);
+            new Horse("Otning ismi", 1, -1);
         });
 
         assertEquals("Distance cannot be negative.", e.getMessage());
@@ -67,20 +67,20 @@ public class HorseTest {
 
     @Test
     public void if_getName_EqualsFirstParameterOfConstructor() throws NoSuchFieldException, IllegalAccessException {
-        Horse horse = new Horse("Horse name", 1, 1);
+        Horse horse = new Horse("Otning ismi", 1, 1);
 
         Field name = Horse.class.getDeclaredField("name");
         name.setAccessible(true);
 
         String nameString = (String) name.get(horse);
 
-        assertEquals("Horse name", nameString);
+        assertEquals("Otning ismi", nameString);
 
     }
 
     @Test
     public void if_getSpeed_EqualsSecondParameterOfConstructor() throws NoSuchFieldException, IllegalAccessException {
-        Horse horse = new Horse("Horse name", 1, 1);
+        Horse horse = new Horse("Otning ismi", 1, 1);
 
         Field speed = Horse.class.getDeclaredField("speed");
         speed.setAccessible(true);
@@ -91,14 +91,14 @@ public class HorseTest {
 
     @Test
     public void if_getDistance_EqualsThirdParameterOfConstructor() {
-        Horse horse = new Horse("Horse name", 1, 1);
+        Horse horse = new Horse("Otning ismi", 1, 1);
 
         assertEquals(1.0, horse.getDistance());
     }
 
     @Test
     public void getDistance_EqualsZeroIfConstructorHasTwoParameters() throws NoSuchFieldException, IllegalAccessException {
-        Horse horse = new Horse("Horse name", 1);
+        Horse horse = new Horse("Otning ismi", 1);
 
         assertEquals(0, horse.getDistance());
     }
@@ -106,7 +106,7 @@ public class HorseTest {
     @Test
     public void moveUsesGetRandomDouble() {
         try (MockedStatic<Horse> mockedHorse = mockStatic(Horse.class)) {
-            new Horse("Horse name", 1, 1).move();
+            new Horse("Otning ismi", 1, 1).move();
 
             mockedHorse.verify(() -> {
                 Horse.getRandomDouble(0.2, 0.9);
@@ -118,7 +118,7 @@ public class HorseTest {
     @Test
     public void moveDistanceTest() {
         try (MockedStatic<Horse> mockedHorse = mockStatic(Horse.class)) {
-            mockedHorse.when(()->Horse.getRandomDouble(0.2, 0.9)).thenReturn(0.5);
+            mockedHorse.when(() -> Horse.getRandomDouble(0.2, 0.9)).thenReturn(0.5);
 
             // Ваша логика, например:
             double distance = 10;
@@ -138,7 +138,26 @@ public class HorseTest {
         return distance + speed * randomValue;
     }
 
+    /*
+     * Второй вариант
 
 
+    @ParameterizedTest
+    @ValueSource(doubles = {0.1, 0.2, 0.5, 0.9, 1.0, 999.999, 0.0})
+    public void moveDistanceTest(double random) {
 
+        try (MockedStatic<Horse> mockedHorse = mockStatic(Horse.class)) {
+
+            Horse horse = new Horse("Otning ismi", 31, 283);
+            mockedHorse.when(() -> Horse.getRandomDouble(0.2, 0.9)).thenReturn(random);
+
+            horse.move();
+
+            assertEquals(283 + 31 * random, horse.getDistance());
+
+        }
+
+    }
+
+     */
 }
